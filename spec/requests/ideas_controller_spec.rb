@@ -13,21 +13,10 @@ require "rails_helper"
       expect(ideas.first.keys).to eq ["id", "title", "body", "created_at", "updated_at", "quality"]
     end
 
-  scenario "it deletes a single item" do
-    idea1 = ideas(:one)
-    idea2 = ideas(:two)
-
-    expect(Idea.count).to eq(6)
-
-    delete "/api/v1/ideas/#{idea1.id}"
-
-    expect(Idea.count).to eq(1)
-  end
-
-  xscenario "it creates an item" do
+  scenario "it creates an idea" do
     idea_params = {title: "Be healthy", body: "Eat more raw vegetables", quality: "swill"}
 
-    expect(Idea.count).to eq 3
+    expect(Idea.count).to eq 6
 
 
     post "api/v1/ideas", {idea: idea_params}
@@ -41,5 +30,17 @@ require "rails_helper"
     expect(ideas["body"]).to eq "Eat more raw vegetables"
     expect(ideas["quality"]).to eq "swill"
   end
+
+  xscenario "it deletes a single item" do
+    idea1 = ideas(:one)
+    idea2 = ideas(:two)
+
+    expect(Idea.count).to eq(6)
+
+    delete "/api/v1/ideas/#{idea1.id}"
+
+    expect(Idea.count).to eq(1)
+  end
+
 
 end

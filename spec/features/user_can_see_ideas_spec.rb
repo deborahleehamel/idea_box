@@ -9,7 +9,7 @@ RSpec.feature "user can see ideas" do
 
       visit "/"
 
-      within(".idea-list") do
+      within("#idea-list") do
         expect(page).to have_content(oldest_idea.title)
         expect(page).to have_content(oldest_idea.body)
         expect(page).to have_content(oldest_idea.quality)
