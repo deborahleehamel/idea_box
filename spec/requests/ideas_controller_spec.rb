@@ -18,20 +18,19 @@ require "rails_helper"
 
     expect(Idea.count).to eq 6
 
-
-    post "api/v1/ideas", {idea: idea_params}
+    post "/api/v1/ideas", {idea: idea_params}
 
     ideas = JSON.parse(response.body)
 
-    expect(response.status).to eq (201)
+    expect(response.status).to eq (200)
 
-    expect(Idea.count).to eq 3
+    expect(Idea.count).to eq 7
     expect(ideas["title"]).to eq "Be healthy"
     expect(ideas["body"]).to eq "Eat more raw vegetables"
     expect(ideas["quality"]).to eq "swill"
   end
 
-  xscenario "it deletes a single item" do
+  xscenario "it deletes a single idea" do
     idea1 = ideas(:one)
     idea2 = ideas(:two)
 

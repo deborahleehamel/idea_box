@@ -2,17 +2,16 @@
 
 <div id="idea-add">
   <div class="idea-form">
-    <h3>Title</h3>
-    <textarea class="add-title">
-    </textarea>
-
-    <h3>Body</h3>
-    <textarea class="add-body">
-    </textarea>
+    <h2>Title</h2>
+    <%= label_tag(:title) %>
+    <%= text_field_tag(:title, "", class:"add-title") %>
     <br>
-    <button class="btn btn-success" type="button" id="create-idea">
-      Save
-    </button>
+    <h2>Body</h2>
+    <%= label_tag(:body) %>
+    <%= text_field_tag(:body, "", class:"add-body") %>
+
+    <br>
+    <%= submit_tag("Save", id:"create-idea") %>
 
   </div>
 </div>
