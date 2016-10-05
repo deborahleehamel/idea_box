@@ -5,11 +5,11 @@ $(document).ready(function() {
     dataType: "JSON",
     success: function(ideas){
       $(ideas).each(function(index, idea){
-        $(".idea-list").append(
+        $("#idea-list").append(
           "<div>" +
           idea.title + "<br>" +
           idea.body + "<br>" +
-          idea.quality
+          idea.quality +
           "</div>"
         )
       })
@@ -19,3 +19,5 @@ $(document).ready(function() {
     }
   })
 });
+
+$(document).ready(function())
