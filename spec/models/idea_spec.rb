@@ -26,7 +26,6 @@ describe "#quality" do
   fixtures :ideas
   it "initially defaults to swill" do
     idea = ideas(:one)
-
     expect(idea.quality).to eq("swill")
   end
 end
