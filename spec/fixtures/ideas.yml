@@ -1,0 +1,29 @@
+one:
+  title: Be generous
+  body: Buy someone a coffee
+  quality: swill
+
+two:
+  title: Exercise
+  body: Go to Zumba class
+  quality: plausible
+
+three:
+  title: Adventure
+  body: Watercoloring with Chelsea
+  quality: genius
+
+invalid1:
+  title:
+  body: Adopt a kitten
+  quality: plausible
+
+invalid2:
+  title: Love Animals
+  body:
+  quality: plausible
+
+invalid3:
+  title: Marathon
+  body: Sign up for triathalon
+  quality:
