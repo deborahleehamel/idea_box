@@ -13,11 +13,11 @@ require "rails_helper"
       expect(ideas.first.keys).to eq ["id", "title", "body", "created_at", "updated_at", "quality"]
     end
 
-  xscenario "it deletes a single item" do
+  scenario "it deletes a single item" do
     idea1 = ideas(:one)
     idea2 = ideas(:two)
 
-    expect(Idea.count).to eq(3)
+    expect(Idea.count).to eq(6)
 
     delete "/api/v1/ideas/#{idea1.id}"
 
