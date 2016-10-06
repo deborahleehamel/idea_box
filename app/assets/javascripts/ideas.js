@@ -109,27 +109,18 @@ var newQualities = {
   }
 };
 
-
-
 function updateTitle(){
   $("#idea-list").on('click', "#title", function(){
     var specificId = $(this).parent().attr("id");
     $(this).keypress(function(event) {
       if(event.which === 13) {
         event.preventDefault();
-        debugger;
       }
     })
     $(this).focusout(function() {
-      debugger;
     })
-    // grab text and send it to my update
   })
 }
-
-// function updateBody(){
-//   $
-// }
 
 function ideaHtml(idea){
   return "<div id='" + idea.id + "'>" +
