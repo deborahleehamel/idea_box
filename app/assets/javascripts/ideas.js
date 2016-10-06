@@ -3,8 +3,8 @@ $(document).ready(function() {
   createIdea();
   deleteIdea();
   updateQuality();
-  // updateTitle();
-  // updateBody();
+  updateTitle();
+  updateBody();
 });
 
 function getIdeas(){
@@ -111,9 +111,23 @@ var newQualities = {
 
 
 
-// function updateTitle(){
-//   $
-// }
+function updateTitle(){
+  $("#idea-list").on('click', "#title", function(){
+    var specificId = $(this).parent().attr("id");
+    $(this).keypress(function(event) {
+      if(event.which === 13) {
+        event.preventDefault();
+        debugger;
+      }
+    })
+    $(this).focusout(function() {
+      debugger;
+    })
+    // grab text and send it to my update
+
+
+  })
+}
 
 // function updateBody(){
 //   $
@@ -121,16 +135,16 @@ var newQualities = {
 
 function ideaHtml(idea){
   return "<div id='" + idea.id + "'>" +
-          idea.title + "<br>" +
-          idea.body + "<br>" +
+          "<p id='title' class='text' contentEditable=true>" + idea.title + "</p>" +
+          "<p id='body' class='text'  contentEditable=true>" + idea.body + "</p>" +
           "<p id='quality'>" + idea.quality + "</p>" +
           "<button specific-id=" +
           idea.id +
           " class='delete-idea btn btn-success' type='button'>Delete</button>" +
-          "<button type='button' id='thumbs-up' class='thumbs-up btn btn-default' aria-label='Right Align'>" +
-          "<span class='glyphicon glyphicon-thumbs-up' aria-hidden='true'></span></button>" +
-          "<button type='button' id='thumbs-down' class='btn btn-default' aria-label='Right Align'>" +
-          "<span class='glyphicon glyphicon-thumbs-down' aria-hidden='true'></span></button><br><br>" +
+          "<button type='button' id='thumbs-up' class='thumbs-up btn btn-default'>" +
+          "<span class='glyphicon glyphicon-thumbs-up'</span></button>" +
+          "<button type='button' id='thumbs-down' class='btn btn-default'>" +
+          "<span class='glyphicon glyphicon-thumbs-down'></span></button><br><br>" +
           "</div>"
 }
 

@@ -1,23 +1,10 @@
-<h1>My Idea Box</h1>
-
-<div id="idea-add">
-  <div class="idea-form">
-    <h2>Title</h2>
-    <%= label_tag(:title) %>
-    <%= text_field_tag(:title, "", class:"add-title") %>
-    <br>
-    <h2>Body</h2>
-    <%= label_tag(:body) %>
-    <%= text_field_tag(:body, "", class:"add-body") %>
-
-    <br>
-    <%= submit_tag("Save", id:"create-idea") %>
-
-  </div>
+<div class="jumbotron text-center" style="background-color: #E0F8E6; border-color: #333;">
+  <h1>My Idea Box</h1>
+  <%= render partial: "add_idea_form" %>
 </div>
 
-<div id="idea-list">
+<div id="idea-list" class="container transparent">
   <div class="idea-whole">
-  </div>
 
+  </div>
 </div>
