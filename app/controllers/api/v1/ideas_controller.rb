@@ -9,6 +9,10 @@ def create
   render json: Idea.create(idea_params)
 end
 
+def destroy
+  Idea.delete(params[:id])
+end
+
 private
 
   def idea_params
