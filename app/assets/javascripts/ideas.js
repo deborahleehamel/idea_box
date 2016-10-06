@@ -34,6 +34,7 @@ $.ajax({
       data: ideaData,
       success: function(idea){
         $("#idea-list").prepend(ideaHtml(idea))
+        clearTextFields();
       },
       error: function(errorResponse){
         console.log(errorResponse)
@@ -67,4 +68,9 @@ function ideaHtml(idea){
           idea.id +
           " class='delete-idea btn btn-success' type='button'>Delete</button>" +
           "</div>"
+}
+
+function clearTextFields(){
+  $('.add-title').val("");
+  $('.add-body').val("");
 }

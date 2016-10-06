@@ -2,7 +2,7 @@ class Api::V1::IdeasController < ApplicationController
   respond_to :json
 
 def index
-  render json: Idea.all.order("created_at DESC")
+  render json: Idea.order("created_at DESC")
 end
 
 def create
