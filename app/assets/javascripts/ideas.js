@@ -2,6 +2,9 @@ $(document).ready(function() {
   getIdeas();
   createIdea();
   deleteIdea();
+  updateQuality();
+  // updateTitle();
+  // updateBody();
 });
 
 function getIdeas(){
@@ -57,15 +60,74 @@ function deleteIdea(){
   })
 }
 
+function updateQuality(){
+  $("#idea-list").on('click', "#thumbs-up", function(){
+    var ideaQuality = $(this).parent().children('#quality').text();
+    var specificId = $(this).parent().attr("id");
+    var thumbsUp = { idea: { quality: newQualities['up'][ideaQuality]}};
+    $.ajax({
+      url: "/api/v1/ideas/" + specificId,
+      method: "PUT",
+      data: thumbsUp,
+      success: function(idea){
+        $('#idea-list').children('#' + idea.id).children('#quality').text(idea.quality)
+      },
+      error: function(errorResponse){
+        console.log(errorResponse)
+      }
+    })
+  })
+
+  $("#idea-list").on('click', "#thumbs-down", function(){
+    var ideaQuality = $(this).parent().children('#quality').text();
+    var specificId = $(this).parent().attr("id");
+    var thumbsDown = { idea: { quality: newQualities['down'][ideaQuality]}};
+    $.ajax({
+      url: "/api/v1/ideas/" + specificId,
+      method: "PUT",
+      data: thumbsDown,
+      success: function(idea){
+        $('#idea-list').children('#' + idea.id).children('#quality').text(idea.quality)
+      },
+      error: function(errorResponse){
+        console.log(errorResponse)
+      }
+    })
+  })
+}
+
+var newQualities = {
+  'up': {
+    'swill':     'plausible',
+    'plausible': 'genius',
+    'genius':    'genius'
+  },
+  'down': {
+    'swill':     'swill',
+    'plausible': 'swill',
+    'genius':    'plausible'
+  }
+};
+
+
+
+// function updateTitle(){
+//   $
+// }
+
+// function updateBody(){
+//   $
+// }
+
 function ideaHtml(idea){
   return "<div id='" + idea.id + "'>" +
           idea.title + "<br>" +
           idea.body + "<br>" +
-          idea.quality + "<br>" +
+          "<p id='quality'>" + idea.quality + "</p>" +
           "<button specific-id=" +
           idea.id +
           " class='delete-idea btn btn-success' type='button'>Delete</button>" +
-          "<button type='button' id='thumbs-up' class='btn btn-default' aria-label='Right Align'>" +
+          "<button type='button' id='thumbs-up' class='thumbs-up btn btn-default' aria-label='Right Align'>" +
           "<span class='glyphicon glyphicon-thumbs-up' aria-hidden='true'></span></button>" +
           "<button type='button' id='thumbs-down' class='btn btn-default' aria-label='Right Align'>" +
           "<span class='glyphicon glyphicon-thumbs-down' aria-hidden='true'></span></button><br><br>" +
