@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+  body {
+  background-image: image-url("Spring-blossom-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.transparent {
+  background:rgba(255,255,255,0.7);
+  font-size: 30px;
+}
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";

@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'faker'
 gem 'responders'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 
 group :development, :test do

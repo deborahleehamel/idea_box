@@ -1,0 +1,13 @@
+<div id="idea-add">
+  <div class="idea-form">
+    <h2>Add a new idea!</h2>
+    <%= label_tag(:title) %>
+    <%= text_field_tag(:title, "", class:"add-title") %>
+    <br><br>
+    <%= label_tag(:body) %>
+    <%= text_field_tag(:body, "", class:"add-body") %>
+
+    <br><br>
+    <%= submit_tag("Save", id:"create-idea") %>
+  </div>
+</div>

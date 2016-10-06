@@ -18,7 +18,7 @@ require "rails_helper"
 
     expect(Idea.count).to eq 6
 
-    post "/api/v1/ideas", {idea: idea_params}
+    post "/api/v1/ideas", params: {idea: idea_params}
 
     ideas = JSON.parse(response.body)
 
@@ -30,7 +30,7 @@ require "rails_helper"
     expect(ideas["quality"]).to eq "swill"
   end
 
-  xscenario "it deletes a single idea" do
+  scenario "it deletes a single idea" do
     idea1 = ideas(:one)
     idea2 = ideas(:two)
 
@@ -38,7 +38,7 @@ require "rails_helper"
 
     delete "/api/v1/ideas/#{idea1.id}"
 
-    expect(Idea.count).to eq(1)
+    expect(Idea.count).to eq(5)
   end
 
 
