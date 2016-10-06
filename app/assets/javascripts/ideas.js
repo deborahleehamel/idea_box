@@ -124,8 +124,6 @@ function updateTitle(){
       debugger;
     })
     // grab text and send it to my update
-
-
   })
 }
 
