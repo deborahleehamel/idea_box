@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature "user can create idea", js: true do
-  fixtures :ideas
   context "user can fill out fields" do
     scenario "new idea created in database" do
 
