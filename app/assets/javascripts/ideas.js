@@ -67,7 +67,7 @@ function updateQuality(){
     var thumbsUp = { idea: { quality: newQualities['up'][ideaQuality]}};
     $.ajax({
       url: "/api/v1/ideas/" + specificId,
-      method: "PUT",
+      method: "PATCH",
       data: thumbsUp,
       success: function(idea){
         $('#idea-list').children('#' + idea.id).children('#quality').text(idea.quality)

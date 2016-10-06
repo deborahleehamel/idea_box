@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "user can see ideas" do
+RSpec.feature "user can see ideas", js: true do
   fixtures :ideas
   context "has ideas added" do
     scenario "see list of ideas descending order" do

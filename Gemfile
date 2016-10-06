@@ -21,6 +21,7 @@ group :development, :test do
   gem "capybara"
   gem "shoulda-matchers", "~> 3.1"
   gem "database_cleaner"
+  gem 'selenium-webdriver'
 end
 
 group :development do

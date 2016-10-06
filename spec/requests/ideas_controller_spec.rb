@@ -41,5 +41,23 @@ require "rails_helper"
     expect(Idea.count).to eq(5)
   end
 
+  scenario "it updates an idea" do
+    idea_params = {title: "Be healthy", body: "Eat more raw vegetables", quality: "swill"}
+
+    title = "Changed title"
+
+    patch "/api/v1/ideas#{idea.id}", params: {idea: idea_params}
+
+    ideas = JSON.parse(response.body)
+
+    expect(response.status).to eq (200)
+
+    expect(Idea.count).to eq 7
+    expect(ideas["title"]).to eq "Changed title"
+    expect(ideas["body"]).to eq "Eat more raw vegetables"
+    expect(ideas["quality"]).to eq "swill"
+  end
+
+
 
 end
