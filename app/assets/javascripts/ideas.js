@@ -22,14 +22,12 @@ $.ajax({
 
  function createIdea(){
   $("#create-idea").on('click', function(){
-    console.log(this)
     var ideaTitle = $(".add-title").val();
     var ideaBody = $(".add-body").val();
     var ideaData = {idea: {title: ideaTitle, body: ideaBody}};
     $.ajax({
       method: "POST",
       url: "/api/v1/ideas",
-
       dataType: "JSON",
       data: ideaData,
       success: function(idea){
@@ -63,10 +61,14 @@ function ideaHtml(idea){
   return "<div id='" + idea.id + "'>" +
           idea.title + "<br>" +
           idea.body + "<br>" +
-          idea.quality +
+          idea.quality + "<br>" +
           "<button specific-id=" +
           idea.id +
           " class='delete-idea btn btn-success' type='button'>Delete</button>" +
+          "<button type='button' id='thumbs-up' class='btn btn-default' aria-label='Right Align'>" +
+          "<span class='glyphicon glyphicon-thumbs-up' aria-hidden='true'></span></button>" +
+          "<button type='button' id='thumbs-down' class='btn btn-default' aria-label='Right Align'>" +
+          "<span class='glyphicon glyphicon-thumbs-down' aria-hidden='true'></span></button><br><br>" +
           "</div>"
 }
 
